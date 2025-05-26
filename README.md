@@ -1,5 +1,4 @@
-API Fórmula 1 - ASP.NET RESTful
-API RESTful para consulta e gerenciamento de dados da Fórmula 1, atualmente com suporte para as entidades Pilotos e Equipes, desenvolvida em ASP.NET Core utilizando Entity Framework para acesso ao banco de dados. A API segue os princípios REST, com endpoints claros e padronizados para operações CRUD. Futuramente, serão adicionados recursos para Circuitos e Temporadas.
+API REST para consulta e gerenciamento de dados da Fórmula 1, atualmente com suporte para as entidades Pilotos e Equipes, desenvolvida em ASP.NET Core utilizando Entity Framework para acesso ao banco de dados. A API segue os princípios REST, com endpoints claros e padronizados para operações CRUD. Futuramente, serão adicionados recursos para Circuitos e Temporadas.
 
 Tecnologias Utilizadas
 
