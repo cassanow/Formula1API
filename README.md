@@ -15,12 +15,12 @@ Futuramente, serão adicionados recursos para Circuitos e Temporadas.
 - Consulta, criação, atualização e exclusão de Pilotos e Equipes (CRUD)  
 - Endpoints RESTful com verbos HTTP adequados (GET, POST, PUT, DELETE)  
 - Rotas padronizadas para fácil consumo  
-- Validação de dados e tratamento consistente de erros  
 
 ## Funcionalidades Futuras
 
 - Implementação de endpoints para Circuitos  
-- Implementação de endpoints para Temporadas  
+- Implementação de endpoints para Temporadas
+- Implementação de Autenticaçâo e Autorização
 
 ## Estrutura da API
 
