@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Formula1API.DTO;
 using Formula1API.Model;
-using Formula1API.Service;
+using Formula1API.Repository;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Formula1API.Controller;
@@ -10,12 +10,12 @@ namespace Formula1API.Controller;
 [ApiController]
 public class PilotosController : ControllerBase
 {
-    private readonly IPilotoService _service;
+    private readonly IPilotoRepository _repository;
     private readonly IMapper _mapper;
 
-    public PilotosController(IPilotoService service, IMapper mapper)
+    public PilotosController(IPilotoRepository repository, IMapper mapper)
     {
-        _service = service;
+        _repository = repository;
         _mapper = mapper;
     }
    
@@ -23,34 +23,34 @@ public class PilotosController : ControllerBase
     public async Task <ActionResult> AdicionarPiloto([FromBody] PilotoDTO piloto)
     {
         var pilotoAdicionar = _mapper.Map<Piloto>(piloto);
-        await _service.AdicionarPiloto(pilotoAdicionar);
+        await _repository.AdicionarPiloto(pilotoAdicionar);
         return Ok(pilotoAdicionar);
     }
     
     [HttpGet]
     public async Task<IEnumerable<Piloto>> GetAllPilotos()
     {
-        return await _service.GetAllPilotos();
+        return await _repository.GetPilotos();
     }
 
     [HttpGet("{id}")]
     public async Task<ActionResult<Piloto>> GetPilotoById(int id)
     {
-        var piloto = await _service.GetPilotoById(id);
+        var piloto = await _repository.GetPilotoById(id);
         return Ok(piloto);
     }
 
     [HttpPut("{id}")]
     public async Task<ActionResult<Piloto>> PutPiloto(int id, Piloto piloto)
     {
-        var pilotoAtualizado = await _service.PutPiloto(id, piloto);
+        var pilotoAtualizado = await _repository.PutPiloto(id, piloto);
         return Ok(pilotoAtualizado);
     }
 
     [HttpDelete("{id}")]
     public async Task<ActionResult<Piloto>> RemoverPiloto(int id)
     {
-        var piloto = await _service.RemoverPiloto(id);
+        var piloto = await _repository.RemoverPiloto(id);
         return Ok(piloto);
     }
     

@@ -1,10 +1,8 @@
 using Formula1API.Helper;
 using Formula1API.Model;
 using Formula1API.Repository;
-using Formula1API.Service;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc.Formatters;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 
@@ -14,10 +12,10 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+
 builder.Services.AddTransient<IPilotoRepository, PilotoRepository>();
-builder.Services.AddTransient<IPilotoService, PilotoService>();
 builder.Services.AddTransient<IEquipeRepository, EquipeRepository>();
-builder.Services.AddTransient<IEquipeService, EquipeService>();
+
 
 builder.Services.AddAutoMapper(typeof(MappingProfiles));
 
