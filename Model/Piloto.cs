@@ -18,5 +18,4 @@ public class Piloto
     
     public string Nacionalidade { get; set; }
   
-    public DateTime DataNascimento { get; set; }
 }

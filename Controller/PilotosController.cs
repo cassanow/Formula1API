@@ -6,14 +6,14 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Formula1API.Controller;
 
+[Route("api/[controller]")]
 [ApiController]
-[Route("piloto")]
-public class PilotoController : ControllerBase
+public class PilotosController : ControllerBase
 {
     private readonly IPilotoService _service;
     private readonly IMapper _mapper;
 
-    public PilotoController(IPilotoService service, IMapper mapper)
+    public PilotosController(IPilotoService service, IMapper mapper)
     {
         _service = service;
         _mapper = mapper;
