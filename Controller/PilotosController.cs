@@ -2,12 +2,14 @@
 using Formula1API.DTO;
 using Formula1API.Model;
 using Formula1API.Repository;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Formula1API.Controller;
 
 [Route("api/[controller]")]
 [ApiController]
+[Authorize]
 public class PilotosController : ControllerBase
 {
     private readonly IPilotoRepository _repository;

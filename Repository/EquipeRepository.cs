@@ -16,8 +16,6 @@ public class EquipeRepository : IEquipeRepository
     public async Task<Equipe> GetById(int id)
     {
         var equipe = await _context.Equipes.FindAsync(id);
-        if(equipe == null)
-            throw new KeyNotFoundException($"Equipe com id {id} não encontrada.");
         
         return equipe;
     }
@@ -37,8 +35,6 @@ public class EquipeRepository : IEquipeRepository
     public async Task<Equipe> Atualizar(int id, Equipe equipe)
     {
         var equipeAtualizar = await _context.Equipes.FindAsync(id);
-        if(equipeAtualizar == null)
-           throw new KeyNotFoundException($"Equipe com id {id} não encontrada.");
         
         _context.Entry(equipeAtualizar).CurrentValues.SetValues(equipe);
         await _context.SaveChangesAsync();
@@ -49,8 +45,6 @@ public class EquipeRepository : IEquipeRepository
     public async Task<Equipe> Remover(int id)
     {
         var equipe = await _context.Equipes.FindAsync(id);
-        if(equipe == null)
-            throw new KeyNotFoundException($"Equipe com id {id} não encontrada.");
         
         _context.Equipes.Remove(equipe);
         await _context.SaveChangesAsync();

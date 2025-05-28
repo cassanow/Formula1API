@@ -2,7 +2,7 @@
 
 namespace Formula1API.DTO;
 
-public class UserDTO
+public class RegistroDTO
 {
     [Required]
     public string? Usuario { get; set; }
