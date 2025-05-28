@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 namespace Formula1API.Model;
 
-public class Context : IdentityDbContext<AppUser>
+public class Context : IdentityDbContext<Usuario>
 {
     public Context(DbContextOptions<Context> options) : base(options)
     {

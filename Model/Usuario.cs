@@ -2,7 +2,7 @@
 
 namespace Formula1API.Model;
 
-public class AppUser : IdentityUser
+public class Usuario : IdentityUser
 {
     
 }

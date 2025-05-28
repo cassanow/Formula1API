@@ -2,6 +2,7 @@
 using Formula1API.DTO;
 using Formula1API.Model;
 using Formula1API.Repository;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Formula1API.Controller;
@@ -20,6 +21,7 @@ public class EquipesController : ControllerBase
     }
 
     [HttpPost]
+    [Authorize]
     public async Task<IActionResult> Adicionar([FromBody] EquipeDTO equipe)
     {
         var adicionarEquipe = _mapper.Map<Equipe>(equipe);
@@ -28,12 +30,14 @@ public class EquipesController : ControllerBase
     }
 
     [HttpGet]
+    [Authorize]
     public async Task<IEnumerable<Equipe>> GetAll()
     {
         return await _repository.GetAll();
     }
 
     [HttpGet("{id}")]
+    [Authorize]
     public async Task<ActionResult<Equipe>> GetById(int id)
     {
         var piloto  = await  _repository.GetById(id);
@@ -41,6 +45,7 @@ public class EquipesController : ControllerBase
     }
 
     [HttpPut("{id}")]
+    [Authorize]
     public async Task<ActionResult<Equipe>> Atualizar(int id, Equipe equipe)
     {
         var equipeAtualizado = await _repository.Atualizar(id, equipe);
@@ -48,6 +53,7 @@ public class EquipesController : ControllerBase
     }
 
     [HttpDelete("{id}")]
+    [Authorize]
     public async Task<IActionResult> Remover(int id)
     {
         var equipe = await _repository.GetById(id);
